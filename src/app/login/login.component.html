@@ -5,7 +5,7 @@
       <div *ngIf="usernameRef.errors?.required">username is required</div>
       <input type="password" name="password" [(ngModel)]="password" #passwordRef="ngModel" minlength="6" placeholder="password" required>
       <div *ngIf="passwordRef.errors?.required">password is required</div>
-      <button type="submit" (ng-disabled)="">Login</button>
+      <button type="submit">Login</button>
     </fieldset>
   </form>
 </div>
