@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
-import {TodoModule} from './todo.module';
+import {TodoModule, TodoState} from './todo.module';
 import {UUID} from 'angular2-uuid';
 import 'rxjs/add/operator/toPromise';
 
@@ -21,7 +21,7 @@ export class TodoService {
     const todo: TodoModule = {
       id: UUID.UUID(),
       desc: desc,
-      completed: false
+      state: TodoState.BACKLOG
     };
     const res = await this.http.post(this.API_URL, todo, this.HEADER).toPromise();
     return res.json().data as TodoModule;
@@ -33,8 +33,13 @@ export class TodoService {
    * @returns {Promise<void>}
    */
   async deleteTodoById(id: String): Promise<void> {
-    await this.http.delete(`this.API_URL/${id}`).toPromise();
-    return null;
+    try {
+      await this.http.delete(`${this.API_URL}/${id}`, this.HEADER).toPromise();
+    } catch (error) {
+      console.log('delete error');
+      throw error;
+    }
+    return;
   }
 
   /**
@@ -42,17 +47,21 @@ export class TodoService {
    * @param {TodoModule} todo
    * @returns {Promise<void>}
    */
-  async updateTodoById(todo: TodoModule): Promise<void> {
-    await this.http.put(`this.API_URL/${todo.id}`, todo).toPromise();
-    return null;
+  async updateTodo(todo: TodoModule): Promise<void> {
+    await this.http.put(`${this.API_URL}/${todo.id}`, todo).toPromise();
+    return;
   }
 
   /**
    * 获取todos
+   * @param {Object} obj
    * @returns {Promise<TodoModule[]>}
    */
-  async getTodos(): Promise<TodoModule[]> {
+  async getTodos(obj: Object): Promise<TodoModule[]> {
     const res = await this.http.get(this.API_URL).toPromise();
+    // const res = await this.http.get(`${this.API_URL}/?${}`).toPromise();
     return res.json().data as TodoModule[];
   }
+
+
 }

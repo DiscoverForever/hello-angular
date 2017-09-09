@@ -1,0 +1,50 @@
+.todo-wrapper
+  display: flex
+  flex-direction: column
+  height: 100%
+  header
+    flex: 0 0 100px
+    width: 100%
+    height: 100px
+    line-height: 100px
+    font-size: 23px
+    text-align: center
+    font-weight: 700
+  .content
+    flex: 1
+    .input-wrapper
+      text-align: center
+    .filter-list-wrapper
+      white-space: nowrap
+      overflow-x: scroll
+      &::-webkit-scrollbar
+        display: none
+      .filter-item
+        float: left
+        height: 40px
+        width: 20%
+        line-height: 40px
+        text-align: center
+        font-size: 13px
+    .todo-list
+      .todo-item
+        position: relative
+        .btn-start, .btn-inprogress, .btn-done, .btn-close
+          position: absolute
+          top: 50%
+          right: 50px
+          width: 30px
+          color: bisque
+        .btn-delete
+          position: absolute
+          top: 50%
+          right: 15px
+          width: 30px
+          color: bisque
+  footer
+    width: 100%
+    height: 80px
+    line-height: 80px
+    text-align: center
+    padding: 15px
+    box-sizing: border-box

@@ -1,5 +1,11 @@
 export class TodoModule {
   id: String;
   desc: String;
-  completed: Boolean;
+  state: TodoState;
+}
+export enum TodoState {
+  BACKLOG,
+  INPROGREESS,
+  DONE,
+  CLOSE
 }

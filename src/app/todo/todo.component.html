@@ -1,21 +1,36 @@
-<div>
-  <input type="checkbox">
-  <input type="text" [(ngModel)]="desc" (keyup.enter)="addTodo()" placeholder="请输入待办事项">
-  <button (click)="addTodo()">添加</button>
-  <ul class="todo-list" [class.open]="true">
-    <li *ngFor="let todo of todoList">
-      <!--<div>-->
-        <!--<span>ID:</span>-->
-        <!--<span>{{todo.id}}</span>-->
-      <!--</div>-->
-      <div>
-        <!--<span>备注:</span>-->
-        <span>{{todo.desc}}</span>
-      </div>
-      <!--<div>-->
-        <!--<span>是否完成:</span>-->
-        <!--<span>{{todo.completed?'是':'否'}}</span>-->
-      <!--</div>-->
-    </li>
-  </ul>
+<div class="todo-wrapper">
+  <header>Todo</header>
+  <div class="content">
+    <div class="input-wrapper">
+      <md-form-field class="example-full-width">
+        <input mdInput type="text" [(ngModel)]="desc" (keyup.enter)="addTodo()" placeholder="请输入待办事项">
+      </md-form-field>
+      <button (click)="addTodo()" md-raised-button color="primary">添加</button>
+    </div>
+    <ul class="filter-list-wrapper">
+      <li class="filter-item">all</li>
+      <li class="filter-item">backlog</li>
+      <li class="filter-item">inprogress</li>
+      <li class="filter-item">done</li>
+      <li class="filter-item">close</li>
+    </ul>
+    <ul class="todo-list" [class.open]="true">
+      <li *ngFor="let todo of todoList" class="todo-item">
+        <md-card>
+          <md-radio-button></md-radio-button>
+          <span>{{todo.desc}}</span>
+          <button class="btn-backlog" *ngIf="todo.state===0" (click)="updateTodo(todo.id, todo.desc, 1)">start</button>
+          <button class="btn-inprogress" *ngIf="todo.state===1" (click)="updateTodo(todo.id, todo.desc,2)">done</button>
+          <button class="btn-done" *ngIf="todo.state===2" (click)="updateTodo(todo.id, todo.desc,3)">close</button>
+          <button class="btn-close" *ngIf="todo.state===3" (click)="updateTodo(todo.id, todo.desc,0)">open</button>
+          <button class="btn-delete" (click)="deleteTodo(todo.id)">del</button>
+        </md-card>
+      </li>
+    </ul>
+  </div>
+  <footer *ngIf="false">
+    <md-checkbox>全部</md-checkbox>
+    <md-checkbox>已完成</md-checkbox>
+    <md-checkbox>未完成</md-checkbox>
+  </footer>
 </div>
