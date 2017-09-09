@@ -57,7 +57,7 @@ export class TodoService {
    * @param {Object} obj
    * @returns {Promise<TodoModule[]>}
    */
-  async getTodos(obj: Object): Promise<TodoModule[]> {
+  async getTodos(obj?: Object): Promise<TodoModule[]> {
     const res = await this.http.get(this.API_URL).toPromise();
     // const res = await this.http.get(`${this.API_URL}/?${}`).toPromise();
     return res.json().data as TodoModule[];
