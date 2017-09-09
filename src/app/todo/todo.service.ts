@@ -13,19 +13,46 @@ export class TodoService {
   }
 
   /**
-   * 添加代办事物
+   * 添加todo
+   * @param {String} desc
+   * @returns {Promise<TodoModule>}
    */
-  addTodo(desc: String): Promise<TodoModule> {
+  async addTodo(desc: String): Promise<TodoModule> {
     const todo: TodoModule = {
       id: UUID.UUID(),
       desc: desc,
       completed: false
     };
-    return this.http.post(this.API_URL, todo, this.HEADER).toPromise()
-      .then(res => res.json().data as TodoModule)
-      .catch(error => {
-        console.log('data error');
-        throw error;
-    });
+    const res = await this.http.post(this.API_URL, todo, this.HEADER).toPromise();
+    return res.json().data as TodoModule;
+  }
+
+  /**
+   * 删除todo
+   * @param {String} id
+   * @returns {Promise<void>}
+   */
+  async deleteTodoById(id: String): Promise<void> {
+    await this.http.delete(`this.API_URL/${id}`).toPromise();
+    return null;
+  }
+
+  /**
+   * 更新todo
+   * @param {TodoModule} todo
+   * @returns {Promise<void>}
+   */
+  async updateTodoById(todo: TodoModule): Promise<void> {
+    await this.http.put(`this.API_URL/${todo.id}`, todo).toPromise();
+    return null;
+  }
+
+  /**
+   * 获取todos
+   * @returns {Promise<TodoModule[]>}
+   */
+  async getTodos(): Promise<TodoModule[]> {
+    const res = await this.http.get(this.API_URL).toPromise();
+    return res.json().data as TodoModule[];
   }
 }

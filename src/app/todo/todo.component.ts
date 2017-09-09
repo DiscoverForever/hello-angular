@@ -14,7 +14,8 @@ export class TodoComponent implements OnInit {
   constructor(private service: TodoService) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.todoList = await this.service.getTodos();
   }
 
   async addTodo() {
@@ -22,6 +23,5 @@ export class TodoComponent implements OnInit {
     this.todoList.push(newTodo);
     this.desc = '';
   }
-
 
 }
