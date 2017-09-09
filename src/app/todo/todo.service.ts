@@ -3,6 +3,8 @@ import {Http, Headers} from '@angular/http';
 import {TodoModule, TodoState} from './todo.module';
 import {UUID} from 'angular2-uuid';
 import 'rxjs/add/operator/toPromise';
+import QueryString from 'query-string';
+
 
 @Injectable()
 export class TodoService {
@@ -58,8 +60,11 @@ export class TodoService {
    * @returns {Promise<TodoModule[]>}
    */
   async getTodos(obj?: Object): Promise<TodoModule[]> {
-    const res = await this.http.get(this.API_URL).toPromise();
-    // const res = await this.http.get(`${this.API_URL}/?${}`).toPromise();
+    let url = this.API_URL;
+    if (obj) {
+      url += `?${QueryString.stringify(obj)}`;
+    }
+    const res = await this.http.get(url).toPromise();
     return res.json().data as TodoModule[];
   }
 

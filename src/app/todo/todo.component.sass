@@ -26,10 +26,14 @@
         line-height: 40px
         text-align: center
         font-size: 13px
+        border-bottom: 1px solid transparent
+        &.active
+          color: lightcoral
+          border-bottom: 1px solid lightcoral
     .todo-list
       .todo-item
         position: relative
-        .btn-start, .btn-inprogress, .btn-done, .btn-close
+        .btn-backlog, .btn-inprogress, .btn-done, .btn-close
           position: absolute
           top: 50%
           right: 50px

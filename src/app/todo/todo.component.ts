@@ -13,6 +13,7 @@ import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 export class TodoComponent implements OnInit {
   todoList: TodoModule[] = [];
   desc: String = '';
+  currentTargetId: Number = 0;
 
   constructor(private service: TodoService, public dialog: MdDialog) {
   }
@@ -21,8 +22,14 @@ export class TodoComponent implements OnInit {
     await this.getTodos();
   }
 
-  async getTodos() {
-    this.todoList = await this.service.getTodos();
+  async getTodos(obj?: Object) {
+    if (obj) {
+      this.todoList = await this.service.getTodos(obj);
+      this.currentTargetId = obj['state'] + 1;
+      console.log(this.currentTargetId);
+      return;
+    }
+    this.todoList = await this.service.getTodos(obj);
   }
 
   async addTodo() {
