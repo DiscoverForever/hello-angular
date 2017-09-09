@@ -25,13 +25,13 @@ import {TodoComponent} from './todo/todo.component';
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryTodoDbService),
-    routing,
     BrowserAnimationsModule,
     MdButtonModule,
     MdMenuModule,
     MdCardModule,
     MdToolbarModule,
-    MdIconModule
+    MdIconModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
