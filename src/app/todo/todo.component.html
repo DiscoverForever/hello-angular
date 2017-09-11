@@ -3,9 +3,9 @@
   <div class="content">
     <div class="input-wrapper">
       <md-form-field class="example-full-width">
-        <input mdInput type="text" [(ngModel)]="desc" (keyup.enter)="addTodo()" placeholder="请输入待办事项">
+        <input mdInput type="text" [(ngModel)]="desc" (keyup.enter)="addTodo()" placeholder="to do something">
       </md-form-field>
-      <button (click)="addTodo()" md-raised-button color="primary">添加</button>
+      <button (click)="addTodo()" md-raised-button color="primary">add</button>
     </div>
     <ul class="filter-list-wrapper">
       <li class="filter-item" [class.active]="currentTargetId===0" (click)="getTodos()">all</li>
