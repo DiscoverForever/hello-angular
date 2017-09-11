@@ -26,9 +26,9 @@ export class TodoComponent implements OnInit {
     if (obj) {
       this.todoList = await this.service.getTodos(obj);
       this.currentTargetId = obj['state'] + 1;
-      console.log(this.currentTargetId);
       return;
     }
+    this.currentTargetId = 0;
     this.todoList = await this.service.getTodos(obj);
   }
 
