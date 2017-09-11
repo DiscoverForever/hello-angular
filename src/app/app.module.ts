@@ -22,13 +22,15 @@ import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import {TodoComponent} from './todo/todo.component';
+import {TodoFooterComponent} from './todo/todo-footer/todo-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    TodoComponent
+    TodoComponent,
+    TodoFooterComponent
   ],
   imports: [
     BrowserModule,

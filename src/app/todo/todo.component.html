@@ -28,9 +28,5 @@
       </li>
     </ul>
   </div>
-  <footer *ngIf="false">
-    <md-checkbox>全部</md-checkbox>
-    <md-checkbox>已完成</md-checkbox>
-    <md-checkbox>未完成</md-checkbox>
-  </footer>
+  <app-todo-footer [itemCount]="todoList?.length"></app-todo-footer>
 </div>
