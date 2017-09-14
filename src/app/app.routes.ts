@@ -1,12 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
-import { TodoComponent } from './todo/todo.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'todos',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -14,8 +13,8 @@ export const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'todos',
-    component: TodoComponent
+    path: 'todo',
+    redirectTo: 'todo'
   }
 
 ];

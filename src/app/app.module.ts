@@ -6,6 +6,7 @@ import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryTodoDbService} from './todo/todo-data';
 import {routing} from './app.routes';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TodoModule} from './todo/todo.module';
 import {
   MdButtonModule,
   MdCardModule,
@@ -21,16 +22,12 @@ import {
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
-import {TodoComponent} from './todo/todo.component';
-import {TodoFooterComponent} from './todo/todo-footer/todo-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    TodoComponent,
-    TodoFooterComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +44,7 @@ import {TodoFooterComponent} from './todo/todo-footer/todo-footer.component';
     MdRadioModule,
     MdInputModule,
     MdDialogModule,
+    TodoModule,
     routing
   ],
   providers: [],
