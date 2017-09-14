@@ -60,4 +60,13 @@ export class TodoComponent implements OnInit {
     this.dialog.open(TodoComponent, {data: {name: 'test'}});
   }
 
+  async onDeleteTodo() {
+    await this.getTodos();
+  }
+
+  async onUpdateTodo(todo: TodoModule) {
+    // todo 参数接收问题
+    console.log(todo);
+    await this.getTodos();
+  }
 }

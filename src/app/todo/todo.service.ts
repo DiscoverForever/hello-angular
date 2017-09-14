@@ -47,11 +47,11 @@ export class TodoService {
   /**
    * 更新todo
    * @param {TodoModule} todo
-   * @returns {Promise<void>}
+   * @returns {Promise<TodoModule>}
    */
-  async updateTodo(todo: TodoModule): Promise<void> {
+  async updateTodo(todo: TodoModule): Promise<TodoModule> {
     await this.http.put(`${this.API_URL}/${todo.id}`, todo).toPromise();
-    return;
+    return todo;
   }
 
   /**
