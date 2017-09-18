@@ -12,8 +12,7 @@ import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 })
 export class TodoComponent implements OnInit {
   todoList: TodoModule[] = [];
-  desc: String = '';
-  currentTargetId: Number = 0;
+  currentTargetId = 0;
 
   constructor(private service: TodoService, public dialog: MdDialog) {
   }
@@ -22,42 +21,23 @@ export class TodoComponent implements OnInit {
     await this.getTodos();
   }
 
-  async getTodos(obj?: Object) {
-    if (obj) {
-      this.todoList = await this.service.getTodos(obj);
-      this.currentTargetId = obj['state'] + 1;
-      return;
+  async getTodos(state?: number) {
+    if (state >= 0) {
+      this.currentTargetId = state + 1;
+      this.todoList = await this.service.getTodos({state: state});
+    } else {
+      this.currentTargetId = 0;
+      this.todoList = await this.service.getTodos();
     }
-    this.currentTargetId = 0;
-    this.todoList = await this.service.getTodos(obj);
   }
 
-  async addTodo() {
-    if (!this.desc) {
-      return;
-    }
-    await this.service.addTodo(this.desc);
-    await this.getTodos();
-    this.desc = '';
-  }
-
-  async updateTodo(id: String, desc: String, state: Number) {
-    const todo: TodoModule = {
-      id: id,
-      desc: desc,
-      state: state as TodoState
-    };
-    await this.service.updateTodo(todo);
-    await this.getTodos();
-  }
-
-  async deleteTodo(id: String) {
-    await this.service.deleteTodoById(id);
-    await this.getTodos();
-  }
 
   openDialog(): void {
     this.dialog.open(TodoComponent, {data: {name: 'test'}});
+  }
+
+  async onAddTodo(todo: TodoModule) {
+    await this.getTodos();
   }
 
   async onDeleteTodo() {

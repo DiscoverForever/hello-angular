@@ -1,3 +1,6 @@
-<p>
-  todo-header works!
-</p>
+<div class="input-wrapper">
+  <md-form-field class="example-full-width">
+    <input mdInput type="text" [(ngModel)]="desc" (keyup.enter)="addTodo()" placeholder="to do something">
+  </md-form-field>
+  <button (click)="addTodo()" md-raised-button color="primary">add</button>
+</div>
