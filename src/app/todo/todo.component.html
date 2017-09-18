@@ -15,7 +15,7 @@
       <li class="filter-item" [class.active]="currentTargetId===4" (click)="getTodos({state:3})">close</li>
     </ul>
     <ul class="todo-list" [class.open]="true">
-      <app-todo-item *ngFor="let todo of todoList" (onDeleteTodo)="onDeleteTodo()" (onUpdateTodo)="onUpdateTodo()" [todo]="todo"></app-todo-item>
+      <app-todo-item *ngFor="let todo of todoList" (onDeleteTodo)="onDeleteTodo()" (onUpdateTodo)="onUpdateTodo($event)" [todo]="todo"></app-todo-item>
     </ul>
   </div>
   <app-todo-footer [itemCount]="todoList?.length"></app-todo-footer>

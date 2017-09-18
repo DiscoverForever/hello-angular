@@ -65,8 +65,6 @@ export class TodoComponent implements OnInit {
   }
 
   async onUpdateTodo(todo: TodoModule) {
-    // todo 参数接收问题
-    console.log(todo);
     await this.getTodos();
   }
 }
