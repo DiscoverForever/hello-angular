@@ -22,6 +22,8 @@ import { TodoHeaderComponent } from './todo-header/todo-header.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoService } from './todo.service';
+import { TodoFilterComponent } from './todo-filter/todo-filter.component';
+import { TodoLogoComponent } from './todo-logo/todo-logo.component';
 
 @NgModule({
   imports: [
@@ -44,7 +46,9 @@ import { TodoService } from './todo.service';
     TodoFooterComponent,
     TodoHeaderComponent,
     TodoItemComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoFilterComponent,
+    TodoLogoComponent
   ],
   providers: [
     { provide: 'todoService', useClass: TodoService }
