@@ -9,9 +9,7 @@
       <li class="filter-item" [class.active]="currentTargetId===3" (click)="getTodos(2)">done</li>
       <li class="filter-item" [class.active]="currentTargetId===4" (click)="getTodos(3)">close</li>
     </ul>
-    <ul class="todo-list" [class.open]="true">
-      <app-todo-item *ngFor="let todo of todoList" (onDeleteTodo)="onDeleteTodo()" (onUpdateTodo)="onUpdateTodo($event)" [todo]="todo"></app-todo-item>
-    </ul>
+    <app-todo-list [todoList]="todoList"></app-todo-list>
   </div>
   <app-todo-footer [itemCount]="todoList?.length"></app-todo-footer>
 </div>
