@@ -1,0 +1,7 @@
+<ul class="filter-list-wrapper">
+  <li class="filter-item" [class.active]="currentTargetId===0" (click)="handleClick(0)">all</li>
+  <li class="filter-item" [class.active]="currentTargetId===1" (click)="handleClick(1)">backlog</li>
+  <li class="filter-item" [class.active]="currentTargetId===2" (click)="handleClick(2)">inprogress</li>
+  <li class="filter-item" [class.active]="currentTargetId===3" (click)="handleClick(3)">done</li>
+  <li class="filter-item" [class.active]="currentTargetId===4" (click)="handleClick(4)">close</li>
+</ul>
