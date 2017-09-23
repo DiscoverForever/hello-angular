@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-todo-logo',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-logo.component.sass']
 })
 export class TodoLogoComponent implements OnInit {
-
+  @Input() text: string = 'Todo';
   constructor() { }
 
   ngOnInit() {
