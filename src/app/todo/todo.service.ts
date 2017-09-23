@@ -8,7 +8,8 @@ import QueryString from 'query-string';
 
 @Injectable()
 export class TodoService {
-  private API_URL = 'api/todos';
+  // private API_URL = 'api/todos';
+  private API_URL = 'http://localhost:3000/todos';
   private HEADER: Headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
@@ -26,7 +27,7 @@ export class TodoService {
       state: TodoState.BACKLOG
     };
     const res = await this.http.post(this.API_URL, todo, this.HEADER).toPromise();
-    return res.json().data as TodoModule;
+    return res.json() as TodoModule;
   }
 
   /**
@@ -65,7 +66,8 @@ export class TodoService {
       url += `?${QueryString.stringify(obj)}`;
     }
     const res = await this.http.get(url).toPromise();
-    return res.json().data as TodoModule[];
+    console.log(res);
+    return res.json() as TodoModule[];
   }
 
 

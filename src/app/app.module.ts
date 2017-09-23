@@ -2,8 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {InMemoryTodoDbService} from './todo/todo-data';
 import {routing} from './app.routes';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TodoModule} from './todo/todo.module';
@@ -33,7 +31,6 @@ import {HomeComponent} from './home/home.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryTodoDbService),
     BrowserAnimationsModule,
     MdButtonModule,
     MdMenuModule,
