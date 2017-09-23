@@ -4,7 +4,4 @@
   <app-todo-filter (onTargetClick)="getTodos($event)"></app-todo-filter>
   <app-todo-list [todoList]="todoList"></app-todo-list>
   <app-todo-footer [itemCount]="todoList?.length" *ngIf="false"></app-todo-footer>
-  <ul>
-    <li *[hidden]="!expression"></li>
-  </ul>
 </div>
