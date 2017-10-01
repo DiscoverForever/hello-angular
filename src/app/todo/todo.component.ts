@@ -22,7 +22,6 @@ export class TodoComponent implements OnInit {
   }
 
   async getTodos(state?: number) {
-    console.log(state);
     if (state && state >= 0) {
       this.currentTargetId = state + 1;
       this.todoList = await this.service.getTodos({state: state});
