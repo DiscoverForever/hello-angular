@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TodoService} from './todo.service';
-import {TodoModule, TodoState} from './todo.module';
+import {Todo, TodoState} from '../domain/entities';
 
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 
@@ -11,7 +11,7 @@ import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
   providers: [TodoService]
 })
 export class TodoComponent implements OnInit {
-  todoList: TodoModule[] = [];
+  todoList: Todo[] = [];
   currentTargetId = 0;
 
   constructor(private service: TodoService, public dialog: MdDialog) {
@@ -22,7 +22,8 @@ export class TodoComponent implements OnInit {
   }
 
   async getTodos(state?: number) {
-    if (state >= 0) {
+    console.log(state);
+    if (state && state >= 0) {
       this.currentTargetId = state + 1;
       this.todoList = await this.service.getTodos({state: state});
     } else {
@@ -36,7 +37,7 @@ export class TodoComponent implements OnInit {
     this.dialog.open(TodoComponent, {data: {name: 'test'}});
   }
 
-  async onAddTodo(todo: TodoModule) {
+  async onAddTodo(todo: Todo) {
     await this.getTodos();
   }
 
@@ -44,7 +45,7 @@ export class TodoComponent implements OnInit {
     await this.getTodos();
   }
 
-  async onUpdateTodo(todo: TodoModule) {
+  async onUpdateTodo(todo: Todo) {
     await this.getTodos();
   }
 }

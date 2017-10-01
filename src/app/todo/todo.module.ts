@@ -55,15 +55,4 @@ import { TodoLogoComponent } from './todo-logo/todo-logo.component';
   ]
 })
 
-export class TodoModule {
-  id: String;
-  desc: String;
-  state: TodoState;
-}
-
-export enum TodoState {
-  BACKLOG,
-  INPROGREESS,
-  DONE,
-  CLOSE
-}
+export class Todo { }

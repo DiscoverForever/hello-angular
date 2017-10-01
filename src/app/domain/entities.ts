@@ -2,7 +2,7 @@ export class Todo {
   id: String;
   desc: String;
   state: TodoState;
-  userId: number;
+  userId?: number;
 }
 
 export class User {

@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {routing} from './app.routes';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TodoModule} from './todo/todo.module';
+import {Todo} from './todo/todo.module';
 import {
   MdButtonModule,
   MdCardModule,
@@ -41,7 +41,7 @@ import {HomeComponent} from './home/home.component';
     MdRadioModule,
     MdInputModule,
     MdDialogModule,
-    TodoModule,
+    Todo,
     routing
   ],
   providers: [],

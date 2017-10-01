@@ -3,20 +3,22 @@
     {
       "id": "f823b191-7799-438d-8d78-fcb1e468fc78",
       "desc": "Getting up",
-      "state": 0,
-      "userId": 1
+      "state": 2
     },
     {
       "id": "c316a3bf-b053-71f9-18a3-0073c7ee3b76",
       "desc": "Go to school",
-      "state": 1,
-      "userId": 2
+      "state": 2
     },
     {
       "id": "3cfc3886-7bb3-dac2-3026-72246cdf33e2",
       "desc": "111",
-      "state": 0,
-      "userId": 1
+      "state": 2
+    },
+    {
+      "id": "fec9bb1d-3ff1-7bbd-d3c7-a67c393387c5",
+      "desc": "111",
+      "state": 1
     }
   ]
 }

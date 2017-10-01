@@ -1,6 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {TodoService} from '../todo.service';
-import {TodoModule} from '../todo.module';
+import {Todo} from '../../domain/entities';
 
 @Component({
   selector: 'app-todo-header',
@@ -9,7 +9,7 @@ import {TodoModule} from '../todo.module';
 })
 export class TodoHeaderComponent implements OnInit {
   public desc: String;
-  @Output() onAddTodo = new EventEmitter<TodoModule>();
+  @Output() onAddTodo = new EventEmitter<Todo>();
 
   constructor(private service: TodoService) {
   }
